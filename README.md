@@ -1,6 +1,9 @@
 # Titration-Calculator
 Edit with nano: nano -ET 4 README*
 Acid Csv format: "AcidName, AcidFormula, Ka1"
+Base csv format: "BaseName, BaseFormula, Kb1"
+
+Constants assume 25 C tempature
 
 ## Contributors
 
