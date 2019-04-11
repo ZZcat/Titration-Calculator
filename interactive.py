@@ -1,20 +1,15 @@
-#Titration Calculator
+import math, pickle, sys
+
+if sys.version_info[0] == 3:
+    running = True
+else:
+    running = False
+    print("You must use python3 to run this program.\nCurrent version information:"+str(sys.version))
+
 print('\nThis code is meant to go through the steps of doing a titration one at a time, at each point, a volume or a pH is calculated')
-
 print('\nThe weak bases are, Ammonia, Aniline, Dimethylene, Ethylamine, Hydrazine, Hydroxylmine, Methylamine, Pyrridine, Trimethylamine')
-
 print('''\nThe weak acids are Acetic Acid, Arsenic Acid, Arsenous Acid, Ascorbic Acid, Benzoic Acid, Boric Acid, Butanoic Acid, Carbonic Acid, Chloroacetic Acid, Chlorous Acid, Citric Acid, Cyanic Acid, Formic, Hydrazoic Acid, Hydrocyanic Acid, Hydrofluoric Acid, Hydrogen Chromate Ion Acid, Hydrogen peroxide
 Hydrogen selenate ion Acid, Hydrosulfuric Acid, Hypobromous Acid, Hypoiodous Acid, Iodic Acid, Lactic Acid, Malonic Acid, Nitrous Acid, Oxalic Acid, Paraperiodic Acid, Phenol, Phosphoric Acid, Propionic Acid, Pyrophosphoric Acid, Selenous Acid, Sulfurous Acid, Tartaric Acid''')
-
-import math
-
-import pickle
-
-'''def acid_or_base(question):#Determines whether the solution being titrated is an acid or a base
-    response=None
-    while response not in ('a','b'):
-        resonse=input(question)
-    return response'''
 
 def molarity_mL_Acid():#Determines the initial concentrations and volumes of the Acidic solution and the base titrant
     x=float(input('\nWhat is the concentration of the acid in mol/L or M?'))
