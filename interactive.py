@@ -1,4 +1,4 @@
-import math, pickle, sys
+import math, pickle, sys, re
 
 def choose_a_solutionBase():#Chooses a basic solution
     solution=input('\nWhat is your basic solution of the weak bases provided?').lower()
@@ -249,26 +249,51 @@ def find_pH_after_equivalence_ptAcid(a_1,b_1,x_1):#Finds the pH after the equiva
     pOH = -math.log10(molarityBase)
     pH = 14-pOH
     return pH
-#def find_pH_after_equivalence_ptBase():#Finds the pH after the equivalence point and beforethe titration has ended if the titrant is an acide
+def chemicalSearch(chemical, dataset):
+    chemical = chemical.replace(" ", "")   
 
+    dataset_names = {}
+    for i in range(0,len(dataset)):
+        dataset_names[i] = str(dataset[i][0]).lower()
+    if chemical.lower() in dataset_names:
+        return dataset[dataset_names[chemical.lower]][2]
+
+    dataset_formulas = {}
+    chemical_formula = []
+    for i in re.findall(r'([A-Z][a-z]*)(\d*)',chemical):
+        chemical_formula.append(i[0], i[1].replace("", "1"))
+
+    for i in range(0,len(dataset)):
+        dataset_formula = []
+        for i in re.findall(r'([A-Z][a-z]*)(\d*)', str(dataset[i][1])):
+            if (i[0], i[1].replace("", "1")) == chemical_formula:
+                return dataset[i][2]
+    return False
+
+# VersionTest/Loop
 if sys.version_info[0] == 3: # Check to see if user is using python3
     running = True
 else:
     running = False
     print("You must use python3 to run this program.\nCurrent version information:"+str(sys.version))
 
-while running:
-    print('\nThis code is meant to go through the steps of doing a titration one at a time, at each point, a volume or a pH is calculated')
-    print('\nThe weak bases are, Ammonia, Aniline, Dimethylene, Ethylamine, Hydrazine, Hydroxylmine, Methylamine, Pyrridine, Trimethylamine')
-    print('''\nThe weak acids are Acetic Acid, Arsenic Acid, Arsenous Acid, Ascorbic Acid, Benzoic Acid, Boric Acid, Butanoic Acid, Carbonic Acid, Chloroacetic Acid, Chlorous Acid, Citric Acid, Cyanic Acid, Formic, Hydrazoic Acid, Hydrocyanic Acid, Hydrofluoric Acid, Hydro$
-    Hydrogen selenate ion Acid, Hydrosulfuric Acid, Hypobromous Acid, Hypoiodous Acid, Iodic Acid, Lactic Acid, Malonic Acid, Nitrous Acid, Oxalic Acid, Paraperiodic Acid, Phenol, Phosphoric Acid, Propionic Acid, Pyrophosphoric Acid, Selenous Acid, Sulfurous Acid, Tartaric$
+if running:
+    # Import data from csv files
+    acidConstants = []
+    for i in open("acidDissociationConstants.csv", "r").read().split("\n"):
+        acidConstants.append(i.split(","))
+    baseConstants = []
+    for i in open("baseDissociationConstants.csv", "r").read().split("\n"):
+        baseConstants.append(i.split(","))
 
+    print('\nThis code is meant to go through the steps of doing a titration one at a time, at each point, a volume or a pH is calculated. It assumes the tempature of all solutions is 25 C.')
+    print("\nSupported acids: " + str(list(zip(*acidConstants))[0]).replace("'", "").replace("[", "").replace("]", "").replace("(","").replace(")", "")) 
+    print("\nSupported Bases: " + str(list(zip(*baseConstants))[0]).replace("'", "").replace("[", "").replace("]", "").replace("(","").replace(")", "")) 
     list_acid_base=[]
            
-    choice=None
+    choice = ""
 
-    while choice!='0':
-    
+    while not choice == '0':
         print('''
             0. Exit
             1. Determine Acid/Base
@@ -296,7 +321,14 @@ while running:
             list_acid_base.append(solution1)
 
             if list_acid_base[0]=='a':#Determines the initial values of the concentration and volume of the acid and titrant base
-                Ka_1=choose_a_solutionAcid()
+                # Get acid and find Ka1
+                results = False
+                while not results:
+                    acidicSolution = input('\nWhat is your acidic solution?')
+                    results = chemicalSearch()
+                    if not results:
+                        print("Unable to identify chemical, try again.")
+                Ka_1 = results
                 x_1,y_1,z_1 = float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
                 Kb_1=choose_a_titrantBase(Ka_1)
            
