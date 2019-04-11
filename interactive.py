@@ -11,12 +11,6 @@ print('\nThe weak bases are, Ammonia, Aniline, Dimethylene, Ethylamine, Hydrazin
 print('''\nThe weak acids are Acetic Acid, Arsenic Acid, Arsenous Acid, Ascorbic Acid, Benzoic Acid, Boric Acid, Butanoic Acid, Carbonic Acid, Chloroacetic Acid, Chlorous Acid, Citric Acid, Cyanic Acid, Formic, Hydrazoic Acid, Hydrocyanic Acid, Hydrofluoric Acid, Hydrogen Chromate Ion Acid, Hydrogen peroxide
 Hydrogen selenate ion Acid, Hydrosulfuric Acid, Hypobromous Acid, Hypoiodous Acid, Iodic Acid, Lactic Acid, Malonic Acid, Nitrous Acid, Oxalic Acid, Paraperiodic Acid, Phenol, Phosphoric Acid, Propionic Acid, Pyrophosphoric Acid, Selenous Acid, Sulfurous Acid, Tartaric Acid''')
 
-def molarity_mL_Acid():#Determines the initial concentrations and volumes of the Acidic solution and the base titrant
-    x=float(input('\nWhat is the concentration of the acid in mol/L or M?'))
-    y=float(input('\nWhat is the volume of the acid in mL?'))
-    z=float(input('\nWhat is the concentration of the titrant base in M?'))
-    return x,y,z
-
 def molarity_mL_Base():#Determines the initial concentrations and volumes of the Basic solution and the acid titrant
     x=float(input('\nWhat is the concentration of the Base in mol/L or M?'))
     y=float(input('\nWhat is the volume of the base in mL?'))
@@ -314,7 +308,7 @@ while choice!='0':
 
             Ka_1=choose_a_solutionAcid()
 
-            x_1,y_1,z_1=molarity_mL_Acid()
+            x_1,y_1,z_1=float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
 
             Kb_1=choose_a_titrantBase(Ka_1)
            
