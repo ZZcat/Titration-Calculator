@@ -1,0 +1,1 @@
+funtion "choose_a_solutionBase" doesn't have "if titrant not in weakBases" like funtion "choose_a_titrantBase"

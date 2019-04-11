@@ -47,153 +47,6 @@ def choose_a_titrantBase(Ka_1):#Chooses a basic titrant
         Kb=6.4*(10**-5)
     return Kb
 
-def choose_a_solutionAcid():#Chooses an acidic solution
-    solution=input('\nWhat is your acidc solution?').lower()    
-    if solution == 'acetic acid' or 'ch3cooh' or 'hc2h3o2':
-        Ka=(1.8*(10**-5))
-    elif solution == 'Arsenic Acid' or 'H3AsO4':
-        Ka=5.6*(10**-3)
-    elif solution == 'Arsenous Acid' or 'H3AsO3':
-        Ka=5.1*(10**-10)
-    elif solution == 'Ascorbic Acid' or 'H2C6H6O6':
-        Ka=8*(10**-5)
-    elif solution == 'Benzoic Acid' or 'C6H7COOH' or 'HC7H5O2':
-        Ka=1.5*(10**-5)
-    elif solution == 'Carbonic Acid' or 'H2CO3':
-        Ka=4.3*(10**-7)
-    elif solution == 'Chloracetic Acid' or 'CH2ClCOOH' or 'HC2H2O2Cl':
-        Ka=1.4*(10-3)
-    elif solution == 'Chlorous Acid' or 'HClO2':
-        Ka=1.1*(10**-2)
-    elif solution == 'Citric Acid' or 'HOOCC(OH)(CH2COOH)2' or 'H3C6H5O7':
-        Ka=7.4*(10**-4)
-    elif solution == 'Cyanic Acid' or 'HCNO':
-        Ka=3.5*(10**-4)
-    elif solution == 'Formic Acid' or 'HCOOH' or 'HCHO2':
-        Ka=1.8*(10**-4)
-    elif solution == 'Hydroazoic Acid' or 'HN3':
-        Ka=1.9*(10**-5)
-    elif solution == 'Hydrocyanic Acid' or 'HCN':
-        Ka=4.9*(10**-10)
-    elif solution == 'Hydrofluoric Acid' or 'HF':
-        Ka=6.8*(10**-4)
-    elif solution == 'Hydrogen Chromate Ion' or 'HCrO4-':
-        Ka=3.0*(10**-7)
-    elif solution == 'Hydrogen Peroxide' or 'H2O2':
-        Ka=2.4*(10**-12)
-    elif titrant == 'Hydrogen Selenate Ion' or 'HSeO4-':
-        Ka=2.2*(10**-2)
-    elif solution == 'Hydrosulfuric Acid' or 'H2S':
-        Ka=9.5*(10**-8)
-    elif solution == 'Hypobromous Acid' or 'HBrO':
-        Ka=2.5*(10**-9)
-    elif solution == 'Hypochlorous Acid' or 'HClO':
-        Ka=3.0*(10**-8)
-    elif solution == 'Hypoiodous Acid' or 'HIO':
-        Ka=2.3*(10**-11)
-    elif solution == 'Iodic Acid' or 'HIO3':
-        Ka=1.7*(10**-1)
-    elif solution == 'Lactic Acid' or 'CH3CH(OH)COOH' or 'HC3H5O3':
-        Ka==1.4*(10**-4)
-    elif solution == 'Malonic Acid' or 'CH2(COOH)2' or 'H2C3H2O4':
-        Ka=1.5*(10**-3)
-    elif solution == 'Nitrous Acid' or 'HNO2':
-        Ka=4.5*(10**-4)
-    elif solution == 'Oxalic Acid' or '(COOH)2' or 'H2C2O4':
-        Ka=5.9*(10**-2)
-    elif solution == 'Paraperiodic Acid' or 'H5IO6':
-        Ka=2.8*(10**-2)
-    elif solution == 'Phenol' or 'C6H5OH' or 'HC6H5O':
-        Ka=1.3*(10**-13)
-    elif solution == 'Phosphoric Acid' or 'H3PO4':
-        Ka=7.5*(10**-3)
-    elif solution == 'Propionic Acid' or 'C2H5COOH' or 'HC3H5O2':
-        Ka=1.3*(10**-5)
-    elif solution == 'Pyrophosphoric Acid' or 'H4P2O7':
-        Ka=3.0*(10**-2)
-    elif solution == 'Selenous Acid' or 'H2SeO3':
-        Ka=2.3*(10**-3)
-    elif solution == 'Sulfurous Acid' or 'H2SO3':
-        Ka=1.7*(10**-2)
-    elif solution == 'Tartaric Acid' or 'HOOC(CHOH)2COOH' or 'H2C4H4O6':
-        Ka=1.0*(10**-3)
-    return Ka                                               #choose_a_solutionAcid() is slightly different than choose_a_titrantAcid() but are needed to determine different things
-
-def choose_a_titrantAcid(Kb_1):#Chooses an acidic titrant
-    titrant=input('\nWhat is your acidic titrant?').lower()
-    #weakAcids=['Acetic Acid','Arsenic Acid','Arsenous Acid','
-    #if titrant not in weakAcids:
-     #   Ka=((1*(10**-14))/Kb_1)
-    if titrant == 'Acetic Acid' or 'CH3COOH' or 'HC2H3O2':
-        Ka=1.8*(10**-5)
-    elif titrant == 'Arsenic Acid' or 'H3AsO4':
-        Ka=5.6*(10**-3)
-    elif titrant == 'Arsenous Acid' or 'H3AsO3':
-        Ka=5.1*(10**-10)
-    elif titrant == 'Ascorbic Acid' or 'H2C6H6O6':
-        Ka=8*(10**-5)
-    elif titrant == 'Benzoic Acid' or 'C6H7COOH' or 'HC7H5O2':
-        Ka=1.5*(10**-5)
-    elif titrant == 'Carbonic Acid' or 'H2CO3':
-        Ka=4.3*(10**-7)
-    elif titrant == 'Chloracetic Acid' or 'CH2ClCOOH' or 'HC2H2O2Cl':
-        Ka=1.4*(10-3)
-    elif titrant == 'Chlorous Acid' or 'HClO2':
-        Ka=1.1*(10**-2)
-    elif titrant == 'Citric Acid' or 'HOOCC(OH)(CH2COOH)2' or 'H3C6H5O7':
-        Ka=7.4*(10**-4)
-    elif titrant == 'Cyanic Acid' or 'HCNO':
-        Ka=3.5*(10**-4)
-    elif titrant == 'Formic Acid' or 'HCOOH' or 'HCHO2':
-        Ka=1.8*(10**-4)
-    elif titrant == 'Hydroazoic Acid' or 'HN3':
-        Ka=1.9*(10**-5)
-    elif titrant == 'Hydrocyanic Acid' or 'HCN':
-        Ka=4.9*(10**-10)
-    elif titrant == 'Hydrofluoric Acid' or 'HF':
-        Ka=6.8*(10**-4)
-    elif titrant == 'Hydrogen Chromate Ion' or 'HCrO4-':
-        Ka=3.0*(10**-7)
-    elif titrant == 'Hydrogen Peroxide' or 'H2O2':
-        Ka=2.4*(10**-12)
-    elif titrant == 'Hydrogen Selenate Ion' or 'HSeO4-':
-        Ka=2.2*(10**-2)
-    elif titrant == 'Hydrosulfuric Acid' or 'H2S':
-        Ka=9.5*(10**-8)
-    elif titrant == 'Hypobromous Acid' or 'HBrO':
-        Ka=2.5*(10**-9)
-    elif titrant == 'Hypochlorous Acid' or 'HClO':
-        Ka=3.0*(10**-8)
-    elif titrant == 'Hypoiodous Acid' or 'HIO':
-        Ka=2.3*(10**-11)
-    elif titrant == 'Iodic Acid' or 'HIO3':
-        Ka=1.7*(10**-1)
-    elif titrant == 'Lactic Acid' or 'CH3CH(OH)COOH' or 'HC3H5O3':
-        Ka==1.4*(10**-4)
-    elif titrant == 'Malonic Acid' or 'CH2(COOH)2' or 'H2C3H2O4':
-        Ka=1.5*(10**-3)
-    elif titrant == 'Nitrous Acid' or 'HNO2':
-        Ka=4.5*(10**-4)
-    elif titrant == 'Oxalic Acid' or '(COOH)2' or 'H2C2O4':
-        Ka=5.9*(10**-2)
-    elif titrant == 'Paraperiodic Acid' or 'H5IO6':
-        Ka=2.8*(10**-2)
-    elif titrant == 'Phenol' or 'C6H5OH' or 'HC6H5O':
-        Ka=1.3*(10**-13)
-    elif titrant == 'Phosphoric Acid' or 'H3PO4':
-        Ka=7.5*(10**-3)
-    elif titrant == 'Propionic Acid' or 'C2H5COOH' or 'HC3H5O2':
-        Ka=1.3*(10**-5)
-    elif titrant == 'Pyrophosphoric Acid' or 'H4P2O7':
-        Ka=3.0*(10**-2)
-    elif titrant == 'Selenous Acid' or 'H2SeO3':
-        Ka=2.3*(10**-3)
-    elif titrant == 'Sulfurous Acid' or 'H2SO3':
-        Ka=1.7*(10**-2)
-    elif titrant == 'Tartaric Acid' or 'HOOC(CHOH)2COOH' or 'H2C4H4O6':
-        Ka=1.0*(10**-3)
-    return Ka
-
 def find_pH_before_titrationAcid(Ka_1,x_1):#Finds pH of the acid before titration starts
     x_2 = (Ka_1*x_1)
     x = math.sqrt(x_2)
@@ -256,6 +109,7 @@ def chemicalSearch(chemical, dataset):
     for i in range(0,len(dataset)):
         dataset_names[str(dataset[i][0]).lower()] = i
     if chemical.lower() in dataset_names:
+        print("[IDENTIFIED] " + dataset[dataset_names[chemical.lower()]][0] + "(" + dataset[dataset_names[chemical.lower()]][1] + ")") # Occures twice in funcion
         return(dataset[dataset_names[chemical.lower()]][2])
 
     dataset_formulas = {}
@@ -276,6 +130,7 @@ def chemicalSearch(chemical, dataset):
         for ii in chemical_formula:
             chemical_formula_s = chemical_formula_s + str(ii[0])*int(ii[1])
         if sorted(dataset_formula_s) == sorted(chemical_formula_s):
+                print("[IDENTIFIED] " + dataset[dataset_names[chemical.lower()]][0] + "(" + dataset[dataset_names[chemical.lower()]][1] + ")") # Occures twice in funcion
                 return(dataset[i][2])
     return(False)
 
@@ -341,7 +196,6 @@ if running:
                     results = chemicalSearch(acidicSolution, acidConstants)
                     if not results:
                         print("Unable to identify chemical, try again.")
-                print("[IDENTIFIED] "+str(resutls))
                 Ka_1 = results
                 x_1,y_1,z_1 = float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
                 Kb_1=choose_a_titrantBase(Ka_1)
@@ -349,8 +203,13 @@ if running:
             elif list_acid_base[0]=='b':#Determines the initial values of the concentration and volume of the base and titrant acid
                 Kb_1=choose_a_solutionBase()
                 x_1,y_1,z_1 = float(input('\nWhat is the concentration of the Base in mol/L or M?')), float(input('\nWhat is the volume of the base in mL?')), float(input('\nWhat is the molarity of the titrant acid in M?'))
-                Ka_1=choose_a_titrantAcid(Kb_1)
-
+                results = False
+                while not results:
+                    acidicSolution = input('\nWhat is your titrant acid?')
+                    results = chemicalSearch(acidicSolution, acidConstants)
+                    if not results:
+                        print("Unable to identify chemical, try again.")
+                Ka_1 = results
         elif choice=='2':#Finds pH before the titration has begun
 
             if list_acid_base[0]=='a':

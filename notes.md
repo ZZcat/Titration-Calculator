@@ -1,0 +1,2 @@
+- Avoid outputing text in funtions
+- Do NOT get user input in funtion
