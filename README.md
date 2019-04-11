@@ -5,8 +5,6 @@ Edit with nano: nano -ET 4 README*
 
 - Zach Zettervall <zach@zettervall.com>
 
----
-
 ## License & copyright
 
 Copyright (C) 2019  Zachary S Zettervall
