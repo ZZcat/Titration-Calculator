@@ -257,83 +257,100 @@ else:
     running = False
     print("You must use python3 to run this program.\nCurrent version information:"+str(sys.version))
 
-while running:
-    print('\nThis code is meant to go through the steps of doing a titration one at a time, at each point, a volume or a pH is calculated')
-    print('\nThe weak bases are, Ammonia, Aniline, Dimethylene, Ethylamine, Hydrazine, Hydroxylmine, Methylamine, Pyrridine, Trimethylamine')
-    print('''\nThe weak acids are Acetic Acid, Arsenic Acid, Arsenous Acid, Ascorbic Acid, Benzoic Acid, Boric Acid, Butanoic Acid, Carbonic Acid, Chloroacetic Acid, Chlorous Acid, Citric Acid, Cyanic Acid, Formic, Hydrazoic Acid, Hydrocyanic Acid, Hydrofluoric Acid, Hydro$
-    Hydrogen selenate ion Acid, Hydrosulfuric Acid, Hypobromous Acid, Hypoiodous Acid, Iodic Acid, Lactic Acid, Malonic Acid, Nitrous Acid, Oxalic Acid, Paraperiodic Acid, Phenol, Phosphoric Acid, Propionic Acid, Pyrophosphoric Acid, Selenous Acid, Sulfurous Acid, Tartaric$
+print('\nThis code is meant to go through the steps of doing a titration one at a time, at each point, a volume or a pH is calculated')
+print('\nThe weak bases are, Ammonia, Aniline, Dimethylene, Ethylamine, Hydrazine, Hydroxylmine, Methylamine, Pyrridine, Trimethylamine')
+print('''\nThe weak acids are Acetic Acid, Arsenic Acid, Arsenous Acid, Ascorbic Acid, Benzoic Acid, Boric Acid, Butanoic Acid, Carbonic Acid, Chloroacetic Acid, Chlorous Acid, Citric Acid, Cyanic Acid, Formic, Hydrazoic Acid, Hydrocyanic Acid, Hydrofluoric Acid, Hydro$
+Hydrogen selenate ion Acid, Hydrosulfuric Acid, Hypobromous Acid, Hypoiodous Acid, Iodic Acid, Lactic Acid, Malonic Acid, Nitrous Acid, Oxalic Acid, Paraperiodic Acid, Phenol, Phosphoric Acid, Propionic Acid, Pyrophosphoric Acid, Selenous Acid, Sulfurous Acid, Tartaric$
 
-    list_acid_base=[]
+list_acid_base=[]
            
-    choice=None
+choice=None
 
-    while choice!='0':
+while choice!='0':
     
-        print('''
-            0. Exit
-            1. Determine Acid/Base
-            2. Find the pH of the solution before titrant is added
-            3. Find volume and pH at equivalence point
-            4. Find pH before equivalence point
-            5. Find pH after equivalence point
-            6. Show Graph
-            ''')
+    print('''
+        0. Exit
+        1. Determine Acid/Base
+        2. Find the pH of the solution before titrant is added
+        3. Find volume and pH at equivalence point
+        4. Find pH before equivalence point
+        5. Find pH after equivalence point
+        6. Show Graph
+        ''')
     
-        choice = input('Enter your choice')
+    choice=input('Enter your choice')
     
-        print("")
+    print()
     
-        if choice=='0':
+    if choice=='0':
         
-            print('Exiting ...')#If choice = 0, user is logged out
+        print('Exiting ...')#If choice = 0, user is logged out
         
-        elif choice=='1':#Determines whether the solution is an acid or base
-            solution1='c'
+    
+    elif choice=='1':#Determines whether the solution is an acid or base
+        solution1='c'
 
-            while solution1 not in ['a','b']:
-                solution1=input("Please tell what the solution is acid or base-a or b?")
+        while solution1 not in ['a','b']:
+
+            solution1=input("Please tell what the solution is acid or base-a or b?")
             
-            list_acid_base.append(solution1)
+        list_acid_base.append(solution1)
 
-            if list_acid_base[0]=='a':#Determines the initial values of the concentration and volume of the acid and titrant base
-                Ka_1=choose_a_solutionAcid()
-                x_1,y_1,z_1 = float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
-                Kb_1=choose_a_titrantBase(Ka_1)
+        if list_acid_base[0]=='a':#Determines the initial values of the concentration and volume of the acid and titrant base
+
+            Ka_1=choose_a_solutionAcid()
+
+            x_1,y_1,z_1 = float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
+
+            Kb_1=choose_a_titrantBase(Ka_1)
            
-            elif list_acid_base[0]=='b':#Determines the initial values of the concentration and volume of the base and titrant acid
-                Kb_1=choose_a_solutionBase()
-                x_1,y_1,z_1 = float(input('\nWhat is the concentration of the Base in mol/L or M?')), float(input('\nWhat is the volume of the base in mL?')), float(input('\nWhat is the molarity of the titrant acid in M?'))
-                Ka_1=choose_a_titrantAcid(Kb_1)
+        elif list_acid_base[0]=='b':#Determines the initial values of the concentration and volume of the base and titrant acid
 
-        elif choice=='2':#Finds pH before the titration has begun
+            Kb_1=choose_a_solutionBase()
 
-            if list_acid_base[0]=='a':
-                pH=find_pH_before_titrationAcid(Ka_1,x_1)
-                print(pH)
+            x_1,y_1,z_1 = float(input('\nWhat is the concentration of the Base in mol/L or M?')), float(input('\nWhat is the volume of the base in mL?')), float(input('\nWhat is the molarity of the titrant acid in M?'))
 
-            elif list_acid_base[0]=='b':
-                pH=find_pH_before_titrationBase(Kb_1,x_1)
-                print(pH)
+            Ka_1=choose_a_titrantAcid(Kb_1)
+
+    elif choice=='2':#Finds pH before the titration has begun
+
+        if list_acid_base[0]=='a':
+
+            pH=find_pH_before_titrationAcid(Ka_1,x_1)
+            
+            print(pH)
+
+        elif list_acid_base[0]=='b':
+
+            pH=find_pH_before_titrationBase(Kb_1,x_1)
+
+            print(pH)
                   
-        elif choice=='3':#Equivalence Point Calculations
+    elif choice=='3':#Equivalence Point Calculations
 
-            if list_acid_base[0]=='a':
-                find_vol_at_equivalence_ptBase(x_1,y_1,z_1)
+        if list_acid_base[0]=='a':
+
+           find_vol_at_equivalence_ptBase(x_1,y_1,z_1)
            
-            elif list_acid_base[0]=='b':
-                find_vol_at_equivalence_ptAcid(x_1,y_1,z_1)
+        elif list_acid_base[0]=='b':
+        
+           find_vol_at_equivalence_ptAcid(x_1,y_1,z_1)
            
-        elif choice=='4':#Calculates the pH before the equivalence point and after the titration has started
+    elif choice=='4':#Calculates the pH before the equivalence point and after the titration has started
 
-            if list_acid_base[0]=='a':
-                pH1=find_pH_before_equivalence_ptAcid(x_1,Ka_1,y_1)
-                print(pH1)
+        if list_acid_base[0]=='a':
 
-            elif list_acid_base[0]=='b':
-                pH1=find_pH_before_equivalence_ptBase(x_1,Kb_1,y_1)
-                print(pH1)
+            pH1=find_pH_before_equivalence_ptAcid(x_1,Ka_1,y_1)
 
-        #elif choice=='5':#Calculates the pH after the equivalence point 
+            print(pH1)
+
+        elif list_acid_base[0]=='b':
+
+            pH1=find_pH_before_equivalence_ptBase(x_1,Kb_1,y_1)
+
+            print(pH1)
+
+    #elif choice=='5':#Calculates the pH after the equivalence point 
         
             
             
