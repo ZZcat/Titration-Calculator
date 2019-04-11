@@ -250,27 +250,40 @@ def find_pH_after_equivalence_ptAcid(a_1,b_1,x_1):#Finds the pH after the equiva
     pH = 14-pOH
     return pH
 def chemicalSearch(chemical, dataset):
-    chemical = chemical.replace(" ", "")   
+    chemical = chemical.replace(" ", "").replace("acid", "").replace("Acid", "")
 
     dataset_names = {}
     for i in range(0,len(dataset)):
-        dataset_names[i] = str(dataset[i][0]).lower()
+        dataset_names[str(dataset[i][0]).lower()] = i
     if chemical.lower() in dataset_names:
-        return dataset[dataset_names[chemical.lower]][2]
+        return(dataset[dataset_names[chemical.lower()]][2])
 
     dataset_formulas = {}
     chemical_formula = []
     for i in re.findall(r'([A-Z][a-z]*)(\d*)',chemical):
-        chemical_formula.append(i[0], i[1].replace("", "1"))
-
+        if i[1] == "":  chemical_formula.append([i[0], i[1].replace("", "1")])
+        else:   chemical_formula.append([i[0], i[1]])
     for i in range(0,len(dataset)):
         dataset_formula = []
-        for i in re.findall(r'([A-Z][a-z]*)(\d*)', str(dataset[i][1])):
-            if (i[0], i[1].replace("", "1")) == chemical_formula:
-                return dataset[i][2]
-    return False
+        dataset_chemical = re.findall(r'([A-Z][a-z]*)(\d*)', str(dataset[i][1]))
+        for ii in dataset_chemical:
+                if ii[1] == "":  dataset_formula.append([ii[0], ii[1].replace("", "1")])
+                else:   dataset_formula.append([ii[0], ii[1]])
+        dataset_formula_s = "" # String made so HOH is the same as H2O
+        chemical_formula_s = ""
+        for ii in dataset_formula:
+            dataset_formula_s = dataset_formula_s + str(ii[0])*int(ii[1])
+        for ii in chemical_formula:
+            chemical_formula_s = chemical_formula_s + str(ii[0])*int(ii[1])
+        if sorted(dataset_formula_s) == sorted(chemical_formula_s):
+                return(dataset[i][2])
+    return(False)
 
-# VersionTest/Loop
+
+   ########
+   # Main #
+   ########
+
 if sys.version_info[0] == 3: # Check to see if user is using python3
     running = True
 else:
@@ -325,9 +338,10 @@ if running:
                 results = False
                 while not results:
                     acidicSolution = input('\nWhat is your acidic solution?')
-                    results = chemicalSearch()
+                    results = chemicalSearch(acidicSolution, acidConstants)
                     if not results:
                         print("Unable to identify chemical, try again.")
+                print("[IDENTIFIED] "+str(resutls))
                 Ka_1 = results
                 x_1,y_1,z_1 = float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
                 Kb_1=choose_a_titrantBase(Ka_1)
