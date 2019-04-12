@@ -148,10 +148,10 @@ else:
 if running:
     # Import data from csv files
     acidConstants = []
-    for i in open("acidDissociationConstants.csv", "r").read().split("\n"):
+    for i in open("data/acidDissociationConstants.csv", "r").read().split("\n"):
         acidConstants.append(i.split(","))
     baseConstants = []
-    for i in open("baseDissociationConstants.csv", "r").read().split("\n"):
+    for i in open("data/baseDissociationConstants.csv", "r").read().split("\n"):
         baseConstants.append(i.split(","))
 
     print('\nThis code is meant to go through the steps of doing a titration one at a time, at each point, a volume or a pH is calculated. It assumes the tempature of all solutions is 25 C.')
