@@ -4,7 +4,7 @@ Acid Csv format: "AcidName, AcidFormula, Ka1"
 Base csv format: "BaseName, BaseFormula, Kb1"
 csv's may not have spaces
 
-Constants assume 25 C tempature
+Most constants assume 25 C tempature
 
 ## Contributors
 
