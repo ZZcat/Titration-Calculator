@@ -1,5 +1,9 @@
 import math, pickle, sys, re
 
+   ############
+   # Funtions #
+   ############
+
 def choose_a_solutionBase():#Chooses a basic solution
     solution=input('\nWhat is your basic solution of the weak bases provided?').lower()
     if solution == 'ammonia' or 'nh3':
@@ -198,7 +202,7 @@ if running:
                         print("Unable to identify chemical, try again.")
                 Ka_1 = results
                 x_1,y_1,z_1 = float(input('\nWhat is the concentration of the acid in mol/L or M?')), float(input('\nWhat is the volume of the acid in mL?')), float(input('\nWhat is the concentration of the titrant base in M?'))
-                Kb_1=choose_a_titrantBase(Ka_1)
+                Kb_1 = choose_a_titrantBase(Ka_1)
            
             elif list_acid_base[0]=='b':#Determines the initial values of the concentration and volume of the base and titrant acid
                 Kb_1=choose_a_solutionBase()
