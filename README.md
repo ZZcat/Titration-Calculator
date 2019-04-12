@@ -1,13 +1,25 @@
 # Titration-Calculator
-Edit with nano: nano -ET 4 README*
+
+## Dependancies
+- Python3
+
+## Running
+Run the interactive.py file with python3 interpeter. Example: `python3 interactive.py`
+
+## Notes for Editors
+Edit with nano: `nano -ET 4 README*`
+
 Acid Csv format: "AcidName, AcidFormula, Ka1"
+
 Base csv format: "BaseName, BaseFormula, Kb1"
+
 csv's may not have spaces
 
 Most constants assume 25 C tempature
 
 ## Contributors
 
+- [Name Censored]
 - Zach Zettervall <zach@zettervall.com>
 
 ## License & copyright
