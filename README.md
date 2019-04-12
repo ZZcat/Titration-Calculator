@@ -19,6 +19,7 @@ Most constants assume 25 C tempature
 
 ## Contributors
 
+- [Name Censored]
 - Zach Zettervall <zach@zettervall.com>
 
 ## License & copyright
